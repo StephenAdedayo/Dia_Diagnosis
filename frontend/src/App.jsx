@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -13,10 +13,13 @@ import HealthTips from './pages/HealthTips'
 import Diagnosis from './pages/Diagnosis'
 
 const App = () => {
+
+  const location = useLocation()
+  const remove = location.pathname.includes("/signup") || location.pathname.includes("/login")
   return (
     <>
-      <Navbar />
-      <main className='min-h-screen px-5 lg:px-40'>
+    {!remove &&  <Navbar />}
+      <main className='min-h-screen'>
       <Routes>
         <Route path='/'  element={<Home />}/>
         <Route path='/about'  element={<About />}/>
@@ -29,7 +32,7 @@ const App = () => {
         <Route path='/diagnosis'  element={<Diagnosis />}/>
       </Routes>
       </main>
-      <Footer />
+      {!remove && <Footer />}
     </>
   )
 }

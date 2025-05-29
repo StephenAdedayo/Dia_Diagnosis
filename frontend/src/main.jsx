@@ -7,10 +7,10 @@ import DiaContextProvider from './context/DiaContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <DiaContextProvider>
     <BrowserRouter>
+        <DiaContextProvider>
     <App />
+        </DiaContextProvider>
     </BrowserRouter>
-    </DiaContextProvider>
   </StrictMode>,
 )
