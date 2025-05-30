@@ -43,11 +43,11 @@ const Navbar = () => {
 
     {/* smallers screens */}
 
-    <div onClick={() => setIsMenuOpen(false)} className={`${isMenuOpen ? "opacity-100" : "opacity-0"} transition-opacity duration-500 delay-75 ease-in z-40 absolute h-full  w-full bg-transparent bg-opacity-100 backdrop-blur-3xl`}>
+    <div onClick={() => setIsMenuOpen(false)} className={`${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"} transition-opacity duration-500 delay-75 ease-in z-40 fixed h-full w-full top-0 bg-transparent bg-opacity-100 backdrop-blur-3xl`}>
 
     </div>
 
-    <div className={`${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"} z-50 absolute h-full w-[80%] bg-[#EFFBFF] top-0 left-0 bottom-0 transition-opacity duration-500 delay-75 ease-in  py-8 lg:hidden block` }>
+    <div className={`${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"} z-50 fixed h-full w-[80%] bg-[#EFFBFF] top-0 left-0 bottom-0 transition-opacity duration-500 delay-75 ease-in  py-8 lg:hidden block` }>
 
       <div className=' flex flex-col gap-5'>
         {links.map((link, index) => {

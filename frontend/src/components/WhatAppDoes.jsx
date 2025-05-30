@@ -18,11 +18,11 @@ const WhatAppDoes = () => {
         <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 '>
           {
             data.map((dat, index) => (
-                <div className='bg-white w-full p-10 rounded-md'>
-                    <p className='py-10 text-[#102D47] text-[14px]'>{dat.detail}</p>
+                <div className='bg-white hover:bg-[#2F73F2] text-[#102D47] hover:text-white hover:shadow transition ease-in duration-200 delay-75 w-full p-10 rounded-lg'>
+                    <p className='py-10  text-[14px]'>{dat.detail}</p>
                     <hr />
                     <div className='flex justify-between pt-4'>
-                    <p className='text-[#102D47] text-[17px]'>{dat.title}</p>
+                    <p className='text-[14px]'>{dat.title}</p>
                     <p>+</p>
                     </div>
                 </div>

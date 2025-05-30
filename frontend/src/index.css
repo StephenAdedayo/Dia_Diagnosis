@@ -17,3 +17,7 @@
 input[type = "checkbox"]{
     accent-color: black;
 }
+
+a.active{
+  color : #0088FF;
+}
