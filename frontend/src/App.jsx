@@ -11,6 +11,7 @@ import Blog from './pages/Blog'
 import SingleBlog from './pages/SingleBlog'
 import HealthTips from './pages/HealthTips'
 import Diagnosis from './pages/Diagnosis'
+import ContactUs from './pages/ContactUs'
 
 const App = () => {
 
@@ -30,6 +31,7 @@ const App = () => {
         <Route path='/singleblog/:id'  element={<SingleBlog />}/>
         <Route path='/healthtips'  element={<HealthTips />}/>
         <Route path='/diagnosis'  element={<Diagnosis />}/>
+        <Route path='/contact'  element={<ContactUs />}/>
       </Routes>
       </main>
       {!remove && <Footer />}

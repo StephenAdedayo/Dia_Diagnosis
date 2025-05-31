@@ -25,10 +25,10 @@ const Footer = () => {
           <p className='text-[18px] text-[#102D47]'>Major Links</p>
 
           <div className='flex flex-col gap-2'>
-            <NavLink className={'text-[16px] text-[#547593]'}>Home</NavLink>
-            <NavLink className={'text-[16px] text-[#547593]'}>About</NavLink>
-            <NavLink className={'text-[16px] text-[#547593]'}>Services</NavLink>
-            <NavLink className={'text-[16px] text-[#547593]'}>Contact</NavLink>
+            <NavLink to={'/'} className={'text-[16px] text-[#547593]'}>Home</NavLink>
+            <NavLink to={'/about'} className={'text-[16px] text-[#547593]'}>About</NavLink>
+            <NavLink to={'/services'} className={'text-[16px] text-[#547593]'}>Services</NavLink>
+            <NavLink to={'/contact'} className={'text-[16px] text-[#547593]'}>Contact</NavLink>
           </div>
          </div>
 
@@ -36,10 +36,10 @@ const Footer = () => {
           <p className='text-[18px] text-[#102D47]'>Quick Links</p>
 
           <div className='flex flex-col gap-2'>
-            <NavLink className={'text-[16px] text-[#547593]'}>Blog Post</NavLink>
-            <NavLink className={'text-[16px] text-[#547593]'}>HealthTips</NavLink>
-            <NavLink className={'text-[16px] text-[#547593]'}>Machine Learning</NavLink>
-            <NavLink className={'text-[16px] text-[#547593]'}>Deep Learning</NavLink>
+            <NavLink to={'/blogs'} className={'text-[16px] text-[#547593]'}>Blog Post</NavLink>
+            <NavLink to={'/healthtips'} className={'text-[16px] text-[#547593]'}>HealthTips</NavLink>
+            <NavLink to={'ml'} className={'text-[16px] text-[#547593]'}>Machine Learning</NavLink>
+            <NavLink to={'dl'} className={'text-[16px] text-[#547593]'}>Deep Learning</NavLink>
           </div>
          </div>
 

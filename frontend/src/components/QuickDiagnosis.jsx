@@ -60,7 +60,7 @@ const QuickDiagnosis = () => {
                     <textarea className='w-full outline-none border border-[#547593] px-2 py-3' name="" id="" rows={5} cols={10} required placeholder='Enter symptoms'></textarea>
                 </label>
 
-                <button type='submit' className='px-6 py-3 border border-[#2F73F2]'>Submit</button>
+                <button type='submit' className='px-6 py-3 border text-[#2F73F2] border-[#2F73F2]'>Submit</button>
             </form>
          </div>
 

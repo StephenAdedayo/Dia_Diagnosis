@@ -7,7 +7,7 @@ import { FaTimes } from 'react-icons/fa'
 
 const Navbar = () => {
 
-  const links = [{name : "Home", href : "/"}, {name : "About", href : "/about"}, {name : "HealthTips", href : "/healthtips"}, {name: "Services", href: "/services"},  ]
+  const links = [{name : "Home", href : "/"}, {name : "About", href : "/about"}, {name : "HealthTips", href : "/healthtips"}, {name: "Services", href: "/services"}, {name : "Contact", href: "/contact"}, {name : "Blogs", href : "/blogs"}  ]
 
   const {location, isMenuOpen, setIsMenuOpen} = useContext(diaContext)
   console.log(isMenuOpen);
