@@ -1,10 +1,16 @@
 import React from 'react'
+import SingleBlogBanner from '../components/SingleBlogBanner'
+import BlogDetails from '../components/BlogDetails'
+import LatestBlog from '../components/LatestBlog'
 
 const SingleBlog = () => {
+
   return (
-    <div>
-      SingleBlog
-    </div>
+    <>
+      <SingleBlogBanner />
+      <BlogDetails />
+      <LatestBlog />
+    </>
   )
 }
 

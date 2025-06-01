@@ -7,6 +7,7 @@ const Blog = () => {
     <>
       <BlogBanner />
       <AllBlogs />
+      
     </>
   )
 }
