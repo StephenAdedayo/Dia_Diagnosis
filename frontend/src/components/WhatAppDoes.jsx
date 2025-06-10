@@ -48,7 +48,7 @@ const WhatAppDoes = () => {
               <hr />
               <div className="flex justify-between pt-4">
                 <p className="text-[14px] lg:text-[22px] ">{dat.title}</p>
-                <p>+</p>
+                {/* <p>+</p> */}
               </div>
             </div>
           ))}

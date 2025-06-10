@@ -9,9 +9,9 @@ const ServiceBanner = () => {
           Our Smart Health Services
         </p>
 
-        <p className="text-[#102D47] lg:text-[20px] text-[17px]">
-          We offer intelligent, accessible tools <br /> to help users detect
-          diabetes risks early <br /> and make informed health decisions.
+        <p className="text-[#102D47] max-w-[500px] lg:text-[20px] text-[17px]">
+          We offer intelligent, accessible tools  to help users detect
+          diabetes risks early  and make informed health decisions.
         </p>
 
         <div className="flex items-center justify-center gap-2">

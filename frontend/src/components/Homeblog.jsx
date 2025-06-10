@@ -50,8 +50,8 @@ const Homeblog = () => {
 
   return (
     <div className="w-full px-5 lg:px-40 my-20">
-      <div className="flex justify-between mb-10">
-        <p>Latest News</p>
+      <div className="flex justify-between items-center mb-10">
+        <p className="text-[#102D47] lg:text-[35px] text-[25px]">Latest News</p>
         <button className="border px-6 py-3 border-[#2F73F2] text-[#2F73F2]">
           Read More
         </button>

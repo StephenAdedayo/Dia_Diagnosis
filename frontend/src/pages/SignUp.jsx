@@ -15,7 +15,7 @@ const SignUp = () => {
             <img src="" alt="" />
             <button
               onClick={() => navigate("/login")}
-              className="border uppercase text-[13px] bg-transparent px-5 py-2"
+              className="border cursor-pointer uppercase text-[13px] bg-transparent px-5 py-2"
             >
               Sign In
             </button>
@@ -70,7 +70,7 @@ const SignUp = () => {
               </p>
             </div>
 
-            <button className="bg-black text-white uppercase text-center w-full py-3">
+            <button className="bg-[#2F73F2] cursor-pointer text-white uppercase text-center w-full py-3">
               Create an Account
             </button>
           </div>

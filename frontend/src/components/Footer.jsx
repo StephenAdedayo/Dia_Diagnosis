@@ -75,14 +75,14 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row md:gap-14 gap-2 md:items-center">
           <p className="text-[#102D47] text-[18px]">NewsLetters</p>
-          <div className="flex">
+          <div className="flex w-full">
             <input
               type="email"
               placeholder="email address"
               className="outline-none border border-[#D5E4F1] flex-1 px-2 py-3"
               required
             />
-            <button className="px-6 py-3 bg-[#2F73F2] text-white">
+            <button className="sm:px-6 px-4 py-3 w-full bg-[#2F73F2] text-white">
               Subscribe
             </button>
           </div>

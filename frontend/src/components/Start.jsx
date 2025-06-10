@@ -5,7 +5,7 @@ const Start = () => {
   const { navigate } = useContext(diaContext);
 
   return (
-    <main className='bg-[url("https://res.cloudinary.com/dfuse3jtq/image/upload/v1748388715/bg1_oyvesh.png")] bg-cover bg-center w-full lg:min-h-screen px-5 lg:px-40 flex items-center min-h-[50vh] '>
+    <main className='bg-[url("https://res.cloudinary.com/dfuse3jtq/image/upload/v1748388715/bg1_oyvesh.png")] bg-cover bg-center w-full md:min-h-screen px-5 lg:px-40 flex items-center  bg-no-repeat min-h-[50vh] '>
       <div className="space-y-3 md:w-[588px] w-[350px]">
         <p className="text-[#0088FF] sm:text-[22px] text-[18px] font-bold">
           Advanced Healthcare

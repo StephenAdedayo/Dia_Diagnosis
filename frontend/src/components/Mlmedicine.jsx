@@ -8,11 +8,11 @@ const Mlmedicine = () => {
       <div className="flex-[50%] gap-5 flex flex-col">
         <div className="flex gap-5 w-full items-center">
           <img
-            className="max-sm:w-[200px] md:w-[250px]  w-[300px]"
+            className="max-sm:w-[200px] md:w-[250px] w-[300px]"
             src={test}
             alt=""
           />
-          <img className="w-[200px]" src={mtest} alt="" />
+          <img className="sm:w-[200px] w-[100px]" src={mtest} alt="" />
         </div>
 
         <div className="flex justify-end">

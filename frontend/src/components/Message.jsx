@@ -3,7 +3,7 @@ import message from "../assets/message.png";
 
 const Message = () => {
   return (
-    <div className="w-full px-5 lg:px-40 my-20 flex flex-col md:flex-row gap-24 items-center">
+    <div className="w-full px-5 lg:px-40 my-20 flex flex-col-reverse md:flex-row gap-24 items-center">
       <div>
         <h1 className="text-[#102D47] lg:text-[40px] text-[25px] mb-10">
           Send Us A message

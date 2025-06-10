@@ -18,6 +18,7 @@ const DiaContextProvider = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const allBlogs = [
     {
@@ -94,6 +95,8 @@ const DiaContextProvider = ({ children }) => {
     isMenuOpen,
     setIsMenuOpen,
     allBlogs,
+    setIsModalOpen,
+    isModalOpen
   };
 
   return <diaContext.Provider value={value}>{children}</diaContext.Provider>;

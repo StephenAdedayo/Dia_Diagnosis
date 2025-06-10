@@ -15,7 +15,7 @@ const Login = () => {
             <img src="" alt="" />
             <button
               onClick={() => navigate("/signup")}
-              className="border uppercase text-[13px] bg-transparent px-5 py-2"
+              className="border uppercase cursor-pointer text-[13px] bg-transparent px-5 py-2"
             >
               Sign Up
             </button>
@@ -74,12 +74,12 @@ const Login = () => {
                 </label>
               </div>
 
-              <Link>
+              <Link to={'/forgot-password'}>
                 <p className="text-[10px] text-[#616161]">Forgot Password?</p>
               </Link>
             </div>
 
-            <button className="bg-black text-white uppercase text-center w-full py-3">
+            <button className="bg-[#2F73F2] cursor-pointer text-white uppercase text-center w-full py-3">
               proceed
             </button>
           </div>

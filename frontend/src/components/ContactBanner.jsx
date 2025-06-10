@@ -9,10 +9,10 @@ const ContactBanner = () => {
           Connect with Our Project Team
         </p>
 
-        <p className="text-[#102D47] lg:text-[20px] text-[14px]">
-          We’re here to answer your questions, receive your feedback, <br /> or
+        <p className="text-[#102D47] lg:text-[20px] max-w-[500px] text-[14px]">
+          We’re here to answer your questions, receive your feedback,  or
           discuss potential collaboration. Let’s work together to make early{" "}
-          <br /> diabetes detection smarter and more accessible.
+           diabetes detection smarter and more accessible.
         </p>
 
         <div className="flex items-center justify-center gap-2">

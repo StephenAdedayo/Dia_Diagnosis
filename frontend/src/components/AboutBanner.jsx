@@ -9,9 +9,9 @@ const AboutBanner = () => {
           About Us
         </p>
 
-        <p className="text-[#102D47] lg:text-[20px] text-[17px]">
-          Preemptive Diabetes Diagnosis Made Smarter, <br /> We combine
-          technology and healthcare to support early, <br /> intelligent risk
+        <p className="text-[#102D47] max-w-[500px] lg:text-[20px] text-[17px]">
+          Preemptive Diabetes Diagnosis Made Smarter, We combine
+          technology and healthcare to support early,  intelligent risk
           assessment.
         </p>
 
