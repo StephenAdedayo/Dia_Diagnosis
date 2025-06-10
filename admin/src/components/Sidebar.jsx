@@ -11,10 +11,10 @@ const Sidebar = () => {
     const links = [{tag: "Overview", href:"/", img: assets.vector1}, {tag : "Add Blog", href:"/addblogs", img:assets.Notebook}, {tag : "Blogs", href:"allblogs", img:assets.Notebook}, {tag: "Users", href: "allusers", img:assets.vector2}]
 
   return (
-    <div className='mt-4'>
+    <div className='mt-4 sticky top-5'>
         <img onClick={() => setIsSideBarOpen(!isSideBarOpen)} src={assets.logo} alt="" className='w-[100px] mb-10'/>
 
-        <div className='w-full'>
+        <div className='w-full '>
            {links.map((link, index) => {
 
             return (
@@ -22,7 +22,7 @@ const Sidebar = () => {
                     <div className='size-8 bg-white rounded-full  items-center flex justify-center'>
                     <img className='w-[14px]' src={link.img} alt="" />
                     </div>
-                    {isSideBarOpen && <p>{link.tag}</p>}
+                    {isSideBarOpen && <p className='uppercase text-sm'>{link.tag}</p>}
                     
                 </NavLink>
             )

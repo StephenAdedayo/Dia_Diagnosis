@@ -15,9 +15,9 @@ const App = () => {
 
   return (
     <>
-    <main className='bg-gray-100 min-h-screen flex gap-10 md:px-10 px-5 py-8 '>
+    <main className='bg-gray-100  min-h-screen flex gap-10 md:px-10 px-5 py-8 '>
       
-      <div className={`${isSideBarOpen ? "flex-[15%] w-full" : "flex-[5%] w-0"} lg:block hidden  transition-all duration-500 delay-75 ease-in-out `}>
+      <div className={`${isSideBarOpen ? "flex-[15%] w-full" : "flex-[5%] w-0"}  lg:block hidden  transition-all duration-500 delay-75 ease-in-out `}>
          <Sidebar />
       </div>
 

@@ -67,7 +67,7 @@ const Navbar = () => {
                       <div className='size-8 bg-white rounded-full items-center flex justify-center'>
                       <img className='w-[14px]' src={link.img} alt="" />
                       </div>
-                      <p>{link.tag}</p>
+                      <p className='uppercase text-sm'>{link.tag}</p>
                       
                   </NavLink>
               )
