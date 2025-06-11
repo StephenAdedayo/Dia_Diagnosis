@@ -119,5 +119,25 @@ const getAllUsers = async (req, res) => {
 
 }
 
+const removeUser = async (req, res) => {
 
-export {loginUser, registerUser, loginAdmin, getAllUsers}
+    try {
+        const {id} = req.body
+
+        const user = await userModel.findByIdAndDelete(id)
+
+        if(!user){
+            res.json({success: false, message: "user could not be deleted"})
+        }
+
+        res.json({success : true, message:"user deleted successfully"})
+    } catch (error) {
+        console.log(error.message);
+        res.json({success: false, message : error.message})
+        
+    }
+
+}
+
+
+export {loginUser, registerUser, loginAdmin, getAllUsers, removeUser}

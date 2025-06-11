@@ -10,9 +10,10 @@ import vector3 from './Vector (5).png'
 import Notebook from './Notebook.png'
 import shopping from './ShoppingBagOpen.png'
 import upload_area from './upload_area.png'
+import button2 from './Button (1).png'
 
 export const assets = {
 
-    button, folderNotch, logo, icon1, icon2, icon3, vector1, vector2, Notebook, shopping, vector3, upload_area
+    button, folderNotch, logo, icon1, icon2, icon3, vector1, vector2, Notebook, shopping, vector3, upload_area, button2
 
 }
