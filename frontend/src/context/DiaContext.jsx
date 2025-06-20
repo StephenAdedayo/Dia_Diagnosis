@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import blog1 from "../assets/blog1.png";
 import blog2 from "../assets/blog2.png";
@@ -11,6 +11,8 @@ import blog8 from "../assets/blog8.png";
 import blog9 from "../assets/blog9.png";
 import blogs1 from "../assets/blogs1.png";
 import author from "../assets/author.png";
+import axios from  'axios'
+import {toast} from 'react-toastify'
 
 export const diaContext = createContext();
 
@@ -19,8 +21,12 @@ const DiaContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [token, setToken] = useState("")
+   const backendUrl = 'http://localhost:8000'
+   const [allBlogs, setAllBlogs] = useState([])
 
-  const allBlogs = [
+
+  const allBlog = [
     {
       _id: 1,
       title: "Insights into Modern Medicine Exploring the Latest Breakthroughs",
@@ -89,6 +95,32 @@ const DiaContextProvider = ({ children }) => {
     },
   ];
 
+  const getBlogs = async () => {
+
+   try {
+      const {data} = await axios.get(backendUrl + "/api/blog/getblogs", {})
+      if(data.success){
+        setAllBlogs(data.data)
+      }else{
+        toast.error(data.message)
+      }
+   } catch (error) {
+       console.log(error.message);
+       toast.error(error.message)
+       
+   }
+  }
+
+  useEffect(() => {
+    getBlogs()
+  }, [])
+
+  useEffect(() => {
+     if(!token && localStorage.getItem("token")){
+      setToken(localStorage.getItem("token"))
+     }
+  }, [token])
+
   const value = {
     navigate,
     location,
@@ -96,7 +128,9 @@ const DiaContextProvider = ({ children }) => {
     setIsMenuOpen,
     allBlogs,
     setIsModalOpen,
-    isModalOpen
+    isModalOpen, 
+    backendUrl,
+    token, setToken
   };
 
   return <diaContext.Provider value={value}>{children}</diaContext.Provider>;

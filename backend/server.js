@@ -5,6 +5,7 @@ import userRouter from './routes/userRoutes.js'
 import connectCloudinary from './config/cloudinary.js'
 import blogRouter from './routes/blogRoutes.js'
 import cors from 'cors'
+import predictRouter from './routes/predictRoutes.js'
 
 const server = express()
 
@@ -19,6 +20,7 @@ server.use(cors())
 
 server.use('/api/user', userRouter)
 server.use('/api/blog', blogRouter)
+server.use("/api/model", predictRouter)
 
 server.get("/", (req, res) => {
      res.json({message : "Api Working"})

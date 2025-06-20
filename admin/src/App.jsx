@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import {Routes, Route} from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
 import Allblogs from './pages/Allblogs'
@@ -7,24 +7,35 @@ import Addblogs from './pages/Addblogs'
 import Sidebar from './components/Sidebar'
 import { Admincontext } from './context/Admincontext'
 import Navbar from './components/Navbar'
+import { ToastContainer, toast } from 'react-toastify';
+import UpdateBlog from './pages/UpdateBlog'
+import Login from './components/Login'
+
+
+
 
 const App = () => {
 
       const {isSideBarOpen, setIsSideBarOpen} = useContext(Admincontext)
+
+      const [token, setToken] = useState(localStorage.getItem("token") ? localStorage.getItem("token") : "")
   
 
   return (
     <>
-    <main className='bg-gray-100  min-h-screen flex gap-10 md:px-10 px-5 py-8 '>
+    <ToastContainer />
+    <main className='bg-gray-100  min-h-screen flex gap-10 md:px-10 px-5 py-8 overflow-hidden'>
+
+      {token === "" ? <Login setToken={setToken}/> : <>
       
       <div className={`${isSideBarOpen ? "flex-[15%] w-full" : "flex-[5%] w-0"}  lg:block hidden  transition-all duration-500 delay-75 ease-in-out `}>
-         <Sidebar />
+         <Sidebar token={token} setToken={setToken}/>
       </div>
 
       {/* <div> */}
 
      <div className={`${isSideBarOpen ? "flex-[85%] " : "flex-[100%]"} `}>
-      <Navbar />
+      <Navbar token={token} setToken={setToken}/>
 
      <Routes>
     
@@ -32,11 +43,12 @@ const App = () => {
     <Route path='/allblogs' element={<Allblogs />}/>
     <Route path='/allusers' element={<Allusers />}/>
     <Route path='/addblogs' element={<Addblogs />}/>
+    <Route path='/update/:id' element={<UpdateBlog />}/>
 
      </Routes>
           </div>
       {/* </div> */}
-
+</>}
       </main>
 
     </>

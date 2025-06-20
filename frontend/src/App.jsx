@@ -14,6 +14,8 @@ import Diagnosis from "./pages/Diagnosis";
 import ContactUs from "./pages/ContactUs";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import { ToastContainer } from 'react-toastify';
+
 
 const App = () => {
   const location = useLocation();
@@ -27,6 +29,7 @@ const App = () => {
 
   return (
     <>
+    <ToastContainer />
       {!remove && <Navbar />}
       <main className="min-h-screen">
         <Routes>
@@ -41,7 +44,7 @@ const App = () => {
           <Route path="/diagnosis" element={<Diagnosis />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/forgot-password" element={<ForgotPassword />}/>
-           <Route path="/reset-password" element={<ResetPassword />}/>
+          <Route path="/reset-password" element={<ResetPassword />}/>
         </Routes>
       </main>
       {!remove && <Footer />}

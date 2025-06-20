@@ -41,13 +41,13 @@ const WhatAppDoes = () => {
       </h1>
 
       <div className="mt-10 lg:pr-40 pr-5">
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+        <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 ">
           {data.map((dat, index) => (
             <div className="bg-white hover:bg-[#2F73F2] text-[#102D47] hover:text-white hover:shadow transition ease-in duration-200 delay-75 w-full p-8 rounded-lg">
-              <p className="py-10  text-[14px] lg:text-[17px]">{dat.detail}</p>
+              <p className="py-10  text-[14px] ">{dat.detail}</p>
               <hr />
               <div className="flex justify-between pt-4">
-                <p className="text-[14px] lg:text-[22px] ">{dat.title}</p>
+                <p className="text-[14px]  ">{dat.title}</p>
                 {/* <p>+</p> */}
               </div>
             </div>

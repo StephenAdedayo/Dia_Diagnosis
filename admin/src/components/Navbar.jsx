@@ -2,9 +2,10 @@ import React, { useContext, useEffect } from 'react'
 import { assets } from '../assets/assets'
 import {useLocation, NavLink} from 'react-router-dom'
 import { Admincontext } from '../context/Admincontext'
+import { toast } from 'react-toastify'
 
 
-const Navbar = () => {
+const Navbar = ({token, setToken}) => {
 
   const location = useLocation()
   const path = location.pathname;
@@ -12,11 +13,17 @@ const Navbar = () => {
   const formattedPath = path === "/" ? "Overview" : path.split("/").filter(Boolean).join(" / ");
 
     const {isSideBarOpen, setIsSideBarOpen, isMenuOpen, setIsMenuOpen} = useContext(Admincontext)
-        const links = [{tag: "Overview", href:"/", img: assets.vector1}, {tag : "Add Blog", href:"/addblogs", img:assets.Notebook}, {tag : "Blogs", href:"allblogs", img:assets.Notebook}, {tag: "Users", href: "allusers", img:assets.vector2}]
+        const links = [{tag: "Overview", href:"/", img: assets.vector1}, {tag : "Add Blog", href:"/addblogs", img:assets.Notebook}, {tag : "Blogs", href:"allblogs", img:assets.Notebook}, {tag: "Users", href: "allusers", img:assets.vector2}, {tag : "UpdateBlogs", href:"update/:id", img:assets.Notebook}]
     
         useEffect(() => {
-          setIsMenuOpen(false)
+        setIsMenuOpen(false)
         }, [location])
+
+        const logout = () => {
+                localStorage.removeItem("token")
+                setToken("")
+                toast.success("Admin logged out successfully")
+              }
 
   return (
     <>
@@ -75,7 +82,7 @@ const Navbar = () => {
           </div>
       </div>
    
-    <div className='mt-20'>
+    <div className='mt-10'>
 
     <div className='flex gap-5 px-4 flex-col'>
 
@@ -91,6 +98,13 @@ const Navbar = () => {
       </div>
 
     </div>
+
+              {token && (
+        <div onClick={logout} className="flex gap-2 mt-10 ml-5  items-center cursor-pointer">
+           <img className="w-[20px]" src="https://cdn-icons-png.freepik.com/256/2626/2626403.png?ga=GA1.1.2728068.1744452084&semt=ais_hybrid" alt="" />
+           <p className="text-[#0088FF]">Logout</p>
+        </div>
+        )}
          </div>
 
   </nav>

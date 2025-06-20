@@ -37,8 +37,7 @@ const Faq = () => {
   const [drop, setDrop] = useState(false);
 
   const handleDrop = (index) => {
-    setDrop(index);
-    //    setDrop(!drop)
+    setDrop(drop === index ? null : index);
   };
 
   return (
@@ -52,19 +51,19 @@ const Faq = () => {
           <div className="border-b py-3 mb-5">
             <div
               onClick={() => handleDrop(index)}
-              className="flex justify-between mb-5"
+              className="flex justify-between cursor-pointer mb-5"
             >
-              <p>{faq.question}</p>
-              <p onClick={() => handleDrop(index)}>
+              <p className="text-[#102D47]">{faq.question}</p>
+              <p className="text-2xl" onClick={() => handleDrop(index)}>
                 {drop === index ? "-" : "+"}
               </p>
             </div>
             <div
               className={`${
-                drop === index ? "max-h-screen" : "max-h-0"
-              } transition-all duration-1000 delay-100 ease-in overflow-hidden`}
+                drop === index ? "max-h-screen h-full" : "max-h-0 h-0"
+              } transition-all duration-700 delay-75 ease-in overflow-hidden`}
             >
-              <p>{faq.answer}</p>
+              <p className="text-zinc-500 pl-2">- {faq.answer}</p>
             </div>
           </div>
         ))}

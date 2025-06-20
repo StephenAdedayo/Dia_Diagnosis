@@ -2,13 +2,21 @@ import React from "react";
 
 const QuickDiagnosis = () => {
   return (
-    <div className="w-full overflow-hidden  sm:px-5 lg:px-40 mt-20 flex flex-col   xl:flex-row">
-      <div className="bg-[#2F73F2] flex-[50%] text-center flex justify-center items-center lg:min-h-screen min-h-[50vh] text-[40px] text-white  w-full  ">
+    <div className="w-full overflow-hidden  sm:px-5 lg:px-40 mt-20 flex flex-col  lg:flex-row">
+      <div className="bg-[#2F73F2] hidden flex-[50%] text-center xl:flex justify-center items-center lg:min-h-screen min-h-[50vh] text-[40px] text-white w-full ">
         <p>Get Quick Free <br /> Diagnosis</p>
       </div>
+      
+          <div className="p-5 rounded bg-[#46C4FF] flex-[50%] ">
+                  <p className="text-center text-white xl:hidden max-md:mb-10 block md:text-[35px] text-[25px]">Get Quick Free Diagnosis</p>
 
-      <div className="min-h-screen flex-[50%] xl:relative  flex items-center justify-center p-5 bg-[#46C4FF]">
-        <form action="" className="bg-white xl:absolute xl:-left-30 md:p-10 p-5 w-full space-y-3">
+      <div className="xl:relative min-h-screen flex items-center justify-center ">
+         
+        
+
+        <form action="" className="bg-white xl:absolute xl:-left-24 md:p-10 p-5 w-full  space-y-3">
+
+          
           <div className="flex flex-row w-full gap-5">
             <div htmlFor="" className="flex flex-col gap-3 w-full">
               <p>Name</p>
@@ -37,7 +45,7 @@ const QuickDiagnosis = () => {
               <input
                 type="tel"
                 placeholder="+91"
-                className="outline-none border border-[#547593] px-2 py-3"
+                className="outline-none border w-full border-[#547593] px-2 py-3"
                 required
               />
             </label>
@@ -47,7 +55,7 @@ const QuickDiagnosis = () => {
               <input
                 type="text"
                 placeholder="ml modelling"
-                className="outline-none border border-[#547593] px-2 py-3"
+                className="outline-none border w-full border-[#547593] px-2 py-3"
                 required
               />
             </label>
@@ -95,6 +103,9 @@ const QuickDiagnosis = () => {
             Submit
           </button>
         </form>
+      </div>
+
+        
       </div>
     </div>
   );

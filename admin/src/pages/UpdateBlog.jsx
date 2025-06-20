@@ -1,24 +1,46 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { assets } from '../assets/assets'
 import { Admincontext } from '../context/Admincontext'
 import { toast } from 'react-toastify'
 import axios from 'axios'
+import { useNavigate, useParams } from 'react-router-dom'
 
-const Addblogs = () => {
+const UpdateBlog = () => {
 
-  const [image1, setImage1] = useState(false)
-  const [image2, setImage2] = useState(false)
-  const [image3, setImage3] = useState(false)
-  const [image4, setImage4] = useState(false)
-
+ 
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
   const [summary, setSummary] = useState("")
   const [author, setAuthor] = useState("")
   const [category, setCategory] = useState("")
   const [published, setPublished] = useState(false)
+  const {id} = useParams()
+  const navigate = useNavigate()
 
   const {backendUrl} = useContext(Admincontext)
+
+   const fetchBlogUpdate = async () => {
+
+    try {
+        const {data} = await axios.get(backendUrl + `/api/blog/singleblog/${id}`)
+        if(data.success){
+          setTitle(data.singleBlog.title)
+          setContent(data.singleBlog.content)
+          setAuthor(data.singleBlog.author)
+          setCategory(data.singleBlog.category)
+          setSummary(data.singleBlog.summary)
+          setPublished(data.singleBlog.published)
+        }else{
+            toast.error(data.message)
+        }
+    } catch (error) {
+        console.log(error.message);
+        toast.error(error.message)
+        
+    }
+
+  }
+
 
   const onSubmitHandler = async (e) => {
     
@@ -26,35 +48,33 @@ const Addblogs = () => {
 
     
     try {
-      const formData = new FormData()
+    //   const formData = new FormData()
+     
 
-      image1 && formData.append("image1", image1)
-      image2 && formData.append("image2", image2)
-      image3 && formData.append("image3", image3)
-      image4 && formData.append("image4", image4)
 
-      formData.append("title", title)
-      formData.append("content", content)
-      formData.append("category", category)
-      formData.append("summary", summary)
-      formData.append("published", published)
-      formData.append("author", author)
+    //   formData.append("title", title)
+    //   formData.append("content", content)
+    //   formData.append("category", category)
+    //   formData.append("summary", summary)
+    //   formData.append("published", published)
+    //   formData.append("author", author)
       
-      const {data} = await axios.post(backendUrl + "/api/blog/add", formData)
+      const {data} = await axios.put(backendUrl + "/api/blog/updateblog", {id, title, content, category, summary, published, author})
        if(data.success){
         toast.success(data.message)
+       }else{
+        toast.error(data.message)
        }
 
-       setImage1(false)
-       setImage2(false)
-       setImage3(false)
-       setImage4(false)
+
        setTitle("")
        setAuthor("")
        setContent("")
        setCategory("")
        setSummary("")
        setPublished(false)
+
+       navigate('/allblogs')
 
     } catch (error) {
       console.log(error.message);
@@ -64,6 +84,10 @@ const Addblogs = () => {
 
   } 
 
+  useEffect(() => {
+   fetchBlogUpdate()
+  }, [id])
+
   return (
     <>
       <main >
@@ -71,34 +95,9 @@ const Addblogs = () => {
       {/* upload image */}
       <form onSubmit={onSubmitHandler}>
         <div>
-          <p className='mb-5 uppercase text-sm text-gray-500 font-medium'>Upload Image</p>
-
-          <div className='flex gap-5'>
-            <label className='' htmlFor="image1">
-              <img className='w-30' src={!image1 ? assets.upload_area : URL.createObjectURL(image1) } alt="" />
-              <input type="file" hidden id='image1' onChange={(e) => setImage1(e.target.files[0])} />
-              <p className='mt-2 text-[12px] text-gray-500 uppercase'>Blog image 1</p>
-            </label>
-
-              <label className='' htmlFor="image2">
-              <img className='w-30' src={!image2 ? assets.upload_area : URL.createObjectURL(image2) } alt="" />
-              <input type="file" hidden id='image2' onChange={(e) => setImage2(e.target.files[0])} />
-              <p className='mt-2 text-[12px] text-gray-500 uppercase'>Blog image 2</p>
-            </label>
+          <p className='mb-5 uppercase text-sm text-gray-500 font-medium'>Update Blog</p>
 
 
-              <label className='' htmlFor="image3">
-              <img className='w-30' src={!image3 ? assets.upload_area : URL.createObjectURL(image3) } alt="" />
-              <input type="file" hidden id='image3' onChange={(e) => setImage3(e.target.files[0])} />
-              <p className='mt-2 text-[12px] text-gray-500 uppercase'>Author Image 1</p>
-            </label>
-
-              <label className='' htmlFor="image4">
-              <img className='w-30' src={!image4 ? assets.upload_area : URL.createObjectURL(image4) } alt="" />
-              <input type="file" hidden id='image4' onChange={(e) => setImage4(e.target.files[0])} />
-              <p className='mt-2 text-[12px] text-gray-500 uppercase'>Author Image 2</p>
-            </label>
-          </div>
         </div>
 
 
@@ -138,7 +137,7 @@ const Addblogs = () => {
           </label>
         </div>
       
-      <button type='submit' className='uppercase text-sm bg-gray-500  text-white mt-5 px-6 py-3'>Add blog</button>
+      <button type='submit' className='uppercase text-sm bg-gray-500  text-white mt-5 px-6 py-3'>Update Blog</button>
      </form>
 
       </main>
@@ -146,4 +145,4 @@ const Addblogs = () => {
   )
 }
 
-export default Addblogs
+export default UpdateBlog

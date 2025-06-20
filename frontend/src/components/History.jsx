@@ -32,14 +32,14 @@ const History = () => {
     },
     {
       title: "How Our Project Contributes",
-      text: "This project applies computational intelligence to predict diabetes risk early using user-provided data. It bridges the gap between awareness and action, offering proactive and accessible healthcare support.",
+      text: "This project applies computational intelligence to predict diabetes risk early using user-provided data. It bridges the gap between awareness and action, offering proactive healthcare support.",
       image: slide2,
     },
   ];
 
   return (
     <div className="w-full px-5 lg:px-40 my-20 py-20 bg-[#EFFBFF] flex xl:flex-row flex-col gap-20 xl:items-center overflow-hidden">
-      <div className="space-y-5 w-[400px] shrink-0">
+      <div className="space-y-5 sm:w-[400px] w-full shrink-0">
         <p className="text-[#102D47] w-full xl:text-[40px] text-[35px] font-bold">
           Intelligent Health Evolution
         </p>
@@ -69,6 +69,15 @@ const History = () => {
               slidesPerView: 2,
               spaceBetween: 20,
             },
+
+            850 : {
+                slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            1200:{
+               slidesPerView: 3,
+              spaceBetween: 10,
+            },
             1504: {
               slidesPerView: 3,
               spaceBetween: 20,
@@ -79,16 +88,16 @@ const History = () => {
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index} className="">
-              <div className="bg-transparent w-full  rounded-md ">
+              <div className="bg-transparent w-full mb-10 rounded-md ">
                 <div className="bg-white xl:p-10 p-5 space-y-5">
-                  <p className="text-[#2F73F2] lg:text-[30px] text-[15px]">
+                  <p className="text-[#2F73F2] lg:text-[17px] text-[15px]">
                     {slide.title}
                   </p>
                   <p className="text-[#547593] lg:text-[16px] text-[15px]">
                     {slide.text}
                   </p>
                 </div>
-                <img className="w-full" src={slide.image} alt="" />
+                <img className="w-full object-cover" src={slide.image} alt="" />
               </div>
             </SwiperSlide>
           ))}

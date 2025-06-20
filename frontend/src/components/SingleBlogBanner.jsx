@@ -9,9 +9,8 @@ const SingleBlogBanner = () => {
 
   const blogData = async () => {
     allBlogs.map((blog) => {
-      if (blog._id === Number(id)) {
+      if (blog._id === id) {
         console.log(blog);
-
         setOneBlog(blog);
         return null;
       }
@@ -38,7 +37,7 @@ const SingleBlogBanner = () => {
 
       <div className=" flex gap-2 items-center">
         <div>
-          <img className="w-[120px]" src={oneBlog.authImage} alt="" />
+          <img className="size-[70px] object-cover rounded-full" src={oneBlog.images[2]} alt="" />
         </div>
         <div>
           <p>{oneBlog.author}</p>

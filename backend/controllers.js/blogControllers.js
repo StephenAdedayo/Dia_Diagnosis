@@ -19,6 +19,15 @@ const addBlog = async (req, res) => {
     );
 
     console.log(images);
+
+      let imagesUrl = await Promise.all(
+            images.map(async (item) => {
+                let result = await cloudinary.uploader.upload(item.path, {resource_type : 'image'})
+                return result.secure_url
+            })
+        )
+
+
       
     const blogData = {
       title,
@@ -26,10 +35,12 @@ const addBlog = async (req, res) => {
       summary,
       author,
       category,
-      images: images,
+      images: imagesUrl,
       published: published === "true" ? true : false,
       date: Date.now(),
     };
+
+       console.log(blogData);
 
     const newBlog = new blogModel(blogData);
 
@@ -50,7 +61,7 @@ const getAllBlogs = async (req, res) => {
       res.json({ success: false, message: "no blogs found" });
     }
 
-    res.json({ success: true, data: allBlogs });
+    res.json({ success: true, data: allBlogs , message: "fetched all blogs"});
   } catch (error) {
     console.log(error.message);
     res.json({ success: false, message: error.message });
@@ -59,9 +70,9 @@ const getAllBlogs = async (req, res) => {
 
 const getSingleBlog = async (req, res) => {
   try {
-    const { blogId } = req.body;
+    const {id}  = req.params;
 
-    const singleBlog = await blogModel.findById(blogId);
+    const singleBlog = await blogModel.findById(id);
 
     if (!singleBlog) {
       res.json({ success: false, message: "blog not found" });
@@ -76,9 +87,12 @@ const getSingleBlog = async (req, res) => {
 
 const removeBlog = async (req, res) => {
   try {
-    const { blogId } = req.body;
+    const { id } = req.body;
 
-    await blogModel.findByIdAndDelete(blogId);
+    const blog = await blogModel.findByIdAndDelete(id);
+    if(!blog){
+      res.json({success: false, message:"could not delete blog"})
+    }
 
     res.json({ success: true, message: "blog deleted successfully" });
   } catch (error) {
@@ -89,7 +103,7 @@ const removeBlog = async (req, res) => {
 
 const updateBlog = async (req, res) => {
   try {
-    const { blogId, title, content, summary, author, category, published } =
+    const { id, title, content, summary, author, category, published } =
       req.body;
 
       
@@ -97,16 +111,17 @@ const updateBlog = async (req, res) => {
     //   updateFields.image = req.file.filename; // or req.file.path
     // }
 
-    const updatedBlog = await blogModel.findByIdAndUpdate(blogId, {
+    const updatedBlog = await blogModel.findByIdAndUpdate(id, {
       title,
       content,
       summary, 
       author,
       category,
-      published    });
+      published  
+    });
 
     if (!updatedBlog) {
-      res.json({ success: false, message: "blog not updated successfully" });
+      return res.json({ success: false, message: "blog not updated successfully" });
     }
 
     res.json({ success: true, message: "blog updated successfully" });
@@ -115,5 +130,17 @@ const updateBlog = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+
+const getBlogData = async (req, res) => {
+
+  try {
+    const {id} = req.body
+    
+  
+  } catch (error) {
+    
+  }
+
+}
 
 export { addBlog, getAllBlogs, getSingleBlog, removeBlog, updateBlog };

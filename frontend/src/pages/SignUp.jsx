@@ -1,9 +1,46 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import rect from "../assets/Rectangle.png";
 import { diaContext } from "../context/DiaContext";
+import axios from 'axios'
+import {toast} from 'react-toastify'
 
 const SignUp = () => {
-  const { navigate } = useContext(diaContext);
+  const { navigate, backendUrl, token, setToken} = useContext(diaContext);
+
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+
+  const onSubmitHandler = async (e) => {
+
+    e.preventDefault()
+
+    try {
+      const {data} = await axios.post(backendUrl + "/api/user/registerUser", {firstName, lastName, email, password})
+      if(data.success){
+        // navigate("/login")
+        // setToken(data.token)
+        // localStorage.setItem("token", data.token)
+        toast.success(data.message)
+        navigate("/login")
+      }else{
+        toast.error(data.message)
+      }
+    } catch (error) {
+       console.log(error.message);
+       toast.error(error.message)
+       
+    }
+
+  }
+
+  // useEffect(() => {
+  //      if(token){
+  //       // navigate("/login")
+  //      }
+  // }, [token])
 
   return (
     <>
@@ -23,6 +60,7 @@ const SignUp = () => {
         </div>
 
         <form
+        onSubmit={onSubmitHandler}
           action=""
           className="bg-white shadow p-10 absolute w-full max-w-[500px] inner "
         >
@@ -40,27 +78,44 @@ const SignUp = () => {
               <p className="uppercase text-[10px]">First Name</p>
               <input
                 type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 placeholder="Stephen"
                 className="outline-0 w-full border-0 placeholder:text-[12px]"
-              />
+              required/>
+            </div>
+
+             <div className="w-full border border-[#212121] space-y-1 p-2">
+              <p className="uppercase text-[10px]">Last Name</p>
+              <input
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="Alu"
+                className="outline-0 w-full border-0 placeholder:text-[12px]"
+             required />
             </div>
 
             <div className="w-full border border-[#212121] space-y-1 p-2">
               <p className="uppercase text-[10px]">Email Address</p>
               <input
-                type="text"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="stephen@gmail.com"
                 className="outline-0 w-full border-0 placeholder:text-[12px]"
-              />
+              required/>
             </div>
 
             <div className="w-full border border-[#212121] space-y-1 p-2">
               <p className="uppercase text-[10px]">password</p>
               <input
-                type="text"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="*******"
                 className="outline-0 w-full border-0 placeholder:text-[12px]"
-              />
+              required/>
             </div>
 
             <div className="flex gap-2">

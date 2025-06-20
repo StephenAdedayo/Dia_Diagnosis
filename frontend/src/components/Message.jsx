@@ -3,13 +3,13 @@ import message from "../assets/message.png";
 
 const Message = () => {
   return (
-    <div className="w-full px-5 lg:px-40 my-20 flex flex-col-reverse md:flex-row gap-24 items-center">
+    <div className="w-full px-5 lg:px-40 my-20 flex flex-col-reverse md:flex-row lg:gap-24 gap-16 items-center">
       <div>
         <h1 className="text-[#102D47] lg:text-[40px] text-[25px] mb-10">
           Send Us A message
         </h1>
 
-        <form action="" className="space-y-5">
+        <form className="space-y-5 flex-[50%]">
           <div className="flex justify-between items-center gap-10">
             <div className="w-full">
               <label className="text-[#102D47] text-[17px]" htmlFor="">
@@ -87,7 +87,7 @@ const Message = () => {
         </form>
       </div>
 
-      <div className="">
+      <div className="w-full flex-[50%]">
         <img src={message} className="object-cover w-full" alt="" />
       </div>
     </div>

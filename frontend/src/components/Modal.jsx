@@ -45,9 +45,9 @@ const Modal = ({ activeIndex, setActiveIndex, data }) => {
             animate = 'presence'
             exit={{opacity:0}}
               onClick={(e) => e.stopPropagation()}
-              className="bg-[#2F73F2]  overflow-y-scroll text-white rounded-lg max-w-[500px] w-full p-5"
+              className="bg-[#2F73F2]  text-white rounded-lg max-w-[500px] w-full p-5"
             >
-              <p className="lg:text-[35px] text-base">
+              <p className="lg:text-[25px] text-base">
                 {modalData?.detail || "loading...."}
               </p>
             </motion.div>

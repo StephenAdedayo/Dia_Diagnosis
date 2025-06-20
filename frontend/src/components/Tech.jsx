@@ -4,7 +4,7 @@ import tick from "../assets/tick.png";
 
 const Tech = () => {
   return (
-    <div className="w-full my-20 px-5 lg:px-40 flex lg:flex-row flex-col items-center gap-20">
+    <div className="w-full my-20 px-5 lg:px-40 flex lg:flex-row flex-col-reverse items-center gap-20">
       <div className="overflow-hidden flex-[50%]">
         <img
           className="hover:scale-110 transition-all duration-500 delay-75 ease-in-out"

@@ -1,18 +1,22 @@
 import React, { createContext, useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 
 
 export const Admincontext = createContext()
-const yeah = 'stephen'
 
 const AdmincontextProvider = ({children}) => {
 
-  const [isSideBarOpen, setIsSideBarOpen] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+const [isSideBarOpen, setIsSideBarOpen] = useState(true)
+const [isMenuOpen, setIsMenuOpen] = useState(false)
+const backendUrl = 'http://localhost:8000'
+const navigate = useNavigate()
+ 
+
+
 
     const value = {
-        yeah,
         isSideBarOpen,setIsSideBarOpen,
-        isMenuOpen, setIsMenuOpen
+        isMenuOpen, setIsMenuOpen, backendUrl, navigate
     }
 
   return (

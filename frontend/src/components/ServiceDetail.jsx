@@ -61,7 +61,7 @@ const ServiceDetail = () => {
       </h1>
 
       <div className="mt-10 lg:pr-40 pr-5">
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+        <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 ">
           {data.map((dat, index) => (
             <div onClick={() => handleModal(dat.id)} key={index} className="bg-white cursor-pointer hover:bg-[#2F73F2] text-[#102D47] shadow hover:text-white hover:shadow transition ease-in duration-200 delay-75 w-full p-10 rounded-lg">
               <p className="py-10  text-[14px]">{dat.detail}</p>

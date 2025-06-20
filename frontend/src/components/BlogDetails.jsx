@@ -13,7 +13,7 @@ const BlogDetails = () => {
 
   const blogData = async () => {
     allBlogs.map((blog) => {
-      if (blog._id === Number(id)) {
+      if (blog._id === id) {
         console.log(blog);
 
         setOneBlog(blog);
@@ -28,22 +28,16 @@ const BlogDetails = () => {
 
   return (
     <div className="px-5 lg:px-40 w-full my-20">
-      <img className="w-full object-cover mb-20" src={oneBlog.image} alt="" />
+      <img className="w-full   object-fit mb-20" src={oneBlog?.images?.[0]} alt="" />
 
-      <div className="flex md:flex-row flex-col gap-20">
+      <div className="flex md:flex-row flex-col lg:gap-20 gap-10">
         <div className="space-y-10">
           <p className="text-[#102D47] lg:text-[40px] text-[25px] font-bold">
             Main Heading & Points
           </p>
 
           <p className="text-[#547593] lg:text-[18px] text-[15px]">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has
-            survived not only five centuries, but also the leap into electronic
-            typesetting, remaining essentially unchanged. It was popularised in
-            the
+           {oneBlog.content}
           </p>
 
           <div className="space-y-3">
@@ -70,7 +64,7 @@ const BlogDetails = () => {
           </div>
 
           <div>
-            <img className="w-full" src={oneBlog.blogImage} alt="" />
+            <img className="w-full" src={oneBlog?.images?.[1]} alt="" />
           </div>
 
           <div>
@@ -83,7 +77,7 @@ const BlogDetails = () => {
           </div>
 
           <div className="border-l-2 border-l-[#2F73F2] px-5">
-            <p className="text-[#102D47] text-[27px]">
+            <p className="text-[#102D47] md:text-[27px] text-[17px]">
               Our team blends machine learning and web development to create
               smart healthcare tools — like our early diabetes prediction system
               — designed to make preventive care easier and more accessible.
@@ -92,11 +86,7 @@ const BlogDetails = () => {
 
           <div>
             <p className="text-[#547593] text-[18px]">
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by
-              injected humour, or randomised words which don't look even
-              slightly believable making this the first true generator on the
-              Internet. It uses a dictionary{" "}
+              {oneBlog.summary}
             </p>
           </div>
 
@@ -117,10 +107,10 @@ const BlogDetails = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-md p-8 shadow w-[70%] h-1/2">
+        <div className="bg-white rounded-md sticky top-2 p-8 shadow w-[70%] h-1/2">
           <p className="mb-5 text-[#102D47] text-[25px]">Share</p>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col  gap-3">
             <Link className="bg-[#526FA3] text-white flex gap-2 pl-2 pr-20 py-3 rounded-md">
               <img src={facebook} alt="" />
               <p>Facebook</p>

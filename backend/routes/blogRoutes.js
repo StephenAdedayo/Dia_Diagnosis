@@ -8,8 +8,8 @@ const blogRouter = express.Router()
 
 blogRouter.post('/add', upload.fields([{name : "image1", maxCount: 1}, {name : "image2", maxCount : 1}, {name : "image3", maxCount : 1}, {name : "image4", maxCount : 1}]), addBlog)
 blogRouter.get("/getblogs", getAllBlogs)
-blogRouter.get("/singleblog", getSingleBlog)
+blogRouter.get("/singleblog/:id", getSingleBlog)
 blogRouter.post("/removeblog", removeBlog)
-blogRouter.post("/updateblog", upload.none(), updateBlog)
+blogRouter.put("/updateblog", upload.none(), updateBlog)
 
 export default blogRouter

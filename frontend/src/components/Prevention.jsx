@@ -4,7 +4,7 @@ import tick from "../assets/tick.png";
 
 const Prevention = () => {
   return (
-    <div className="px-5 lg:px-40 w-full my-20 flex lg:flex-row flex-col items-center gap-20">
+    <div className="px-5 lg:px-40 w-full my-20 flex lg:flex-row flex-col-reverse items-center gap-20">
       <div className="flex-[50%] overflow-hidden">
         <img
           className="hover:scale-110 transition-all duration-500 delay-75 ease-in-out"

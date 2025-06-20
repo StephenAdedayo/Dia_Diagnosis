@@ -4,7 +4,7 @@ import test from "../assets/test.png";
 
 const Mlmedicine = () => {
   return (
-    <div className="my-20 overflow-hidden w-full p-5 lg:px-40 bg-white flex items-center flex-col xl:flex-row gap-20">
+    <div className="my-20 overflow-hidden w-full p-5 lg:px-40 bg-white flex items-center flex-col-reverse xl:flex-row gap-20">
       <div className="flex-[50%] gap-5 flex flex-col">
         <div className="flex gap-5 w-full items-center">
           <img
@@ -20,7 +20,7 @@ const Mlmedicine = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-10 flex-[50%]">
+      <div className="flex flex-col  gap-10 flex-[50%]">
         <h1 className="capitalise font-bold text-[#102D47] lg:text-[35px] text-[25px]">
           The heart and science of machine learning in Medicine{" "}
         </h1>

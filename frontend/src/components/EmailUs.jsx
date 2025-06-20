@@ -3,16 +3,17 @@ import iconbg from "../assets/iconbg.png";
 import mail1 from "../assets/mail1.png";
 import arrow from "../assets/arrow.png";
 import { Link } from "react-router-dom";
+import career from '../assets/Career.png'
 
 const EmailUs = () => {
   return (
     <div className="w-full px-5 lg:px-40 my-20 ">
       <main className="flex justify-between flex-col md:flex-row items-center gap-20">
         <div className="flex gap-5 ">
-          <div className="size-[70px] relative ">
-            <img className="w-full object-cover" src={iconbg} alt="" />
+          <div className="size-[70px] border p-3 border-black grid place-items-center bg-[#C0D5FB] rounded-full">
+            {/* <img className="w-full object-cover relative" src={iconbg} alt="" /> */}
             <img
-              className="absolute top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%]"
+              className=""
               src={mail1}
               alt=""
             />
@@ -39,11 +40,11 @@ const EmailUs = () => {
         </div>
 
         <div className="flex gap-5 ">
-          <div className="size-[70px] relative ">
-            <img className="w-full object-cover" src={iconbg} alt="" />
+          <div className="size-[70px] border border-black grid p-3 place-items-center bg-[#C0D5FB] rounded-full">
+            {/* <img className="w-full object-cover relative" src={iconbg} alt="" /> */}
             <img
-              className="absolute top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%]"
-              src={mail1}
+              className=""
+              src={career}
               alt=""
             />
           </div>
