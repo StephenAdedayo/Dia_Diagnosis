@@ -65,14 +65,14 @@ const Allusers = () => {
 
   return (
     <>
-      <main className='bg-white rounded-lg p-5 w-full'>
+      <main className='bg-white rounded-lg p-5 w-full '>
         <div className='flex justify-between items-center mb-8'>
           <p className='text-[#2F73F2]'>All Users</p>
           <img className='w-[30px]' src={assets.button2} alt="" />
         </div>
       
-
-     <table  border={1} className='w-full'>
+     <div className='overflow-x-scroll hide'>
+     <table border={1} className='w-full whitespace-nowrap '>
         <thead className=''>
         <tr className='text-gray-400'>
           <td className=''>UserId</td>
@@ -94,7 +94,7 @@ const Allusers = () => {
            ))}
 
      </table>
-      
+      </div>
 
 
       </main> 

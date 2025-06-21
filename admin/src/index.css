@@ -27,3 +27,7 @@ select{
 td{
  padding: 10px;
 }
+
+.hide::-webkit-scrollbar{
+    display: none;
+}

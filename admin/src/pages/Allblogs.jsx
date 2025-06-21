@@ -71,15 +71,15 @@ const Allblogs = () => {
 
   return (
     <>
- <main className='bg-white rounded-lg p-5 w-full '>
+ <main className='bg-white rounded-lg p-5 w-full yeah'>
         <div className='flex justify-between items-center mb-8'>
           <p className='text-[#2F73F2]'>All Blogs</p>
           <img className='w-[30px]' src={assets.button2} alt="" />
         </div>
       
-       <div className='overflow-hidden overflow-x-scroll w-full'>
-
-     <table border={1} className='w-full shrink-0'>
+       <div className='w-full overflow-x-scroll hide'>
+     
+     <table border={1} className='w-full min-w-[700px] whitespace-nowrap '>
         <thead className=''>
         <tr className='text-gray-400'>
           <td className=''>BlogId</td>

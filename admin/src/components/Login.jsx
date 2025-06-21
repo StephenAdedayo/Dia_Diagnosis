@@ -1,42 +1,38 @@
 import React, { useContext, useEffect, useState } from "react";
 import rect from "../assets/Rec.png";
 import { Link } from "react-router-dom";
-import axios from 'axios'
-import {toast} from 'react-toastify'
+import axios from "axios";
+import { toast } from "react-toastify";
 import { Admincontext } from "../context/Admincontext";
 
-
-const Login = ({setToken}) => {
+const Login = ({ setToken }) => {
   const { navigate, backendUrl } = useContext(Admincontext);
 
   //  const [firstName, setFirstName] = useState("")
   // const [lastName, setLastName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const onSubmitHandler = async (e) => {
-
-    e.preventDefault()
-
-    
+    e.preventDefault();
 
     try {
-      const {data} = await axios.post(backendUrl + "/api/user/loginAdmin", {email, password})
-      if(data.success){
-        setToken(data.token)
-        localStorage.setItem("token", data.token)
-        toast.success(data.message)
-      }else{
-        toast.error(data.message)
+      const { data } = await axios.post(backendUrl + "/api/user/loginAdmin", {
+        email,
+        password,
+      });
+      if (data.success) {
+        setToken(data.token);
+        localStorage.setItem("token", data.token);
+        toast.success(data.message);
+      } else {
+        toast.error(data.message);
       }
     } catch (error) {
-       console.log(error.message);
-       toast.error(error.message)
-       
+      console.log(error.message);
+      toast.error(error.message);
     }
-
-  }
+  };
 
   // useEffect(() => {
   //    if(token){
@@ -44,16 +40,12 @@ const Login = ({setToken}) => {
   //    }
   // }, [token])
 
-
-  return  (
+  return (
     <>
-      <div className="w-full grid place-items-center">
-
-
-
+      <div className="w-full grid place-items-center bg-gray-100">
         <form
           onSubmit={onSubmitHandler}
-          className="bg-white shadow p-10 absolute w-full max-w-[500px] inner "
+          className="bg-white shadow p-10  w-full max-w-[500px]"
         >
           <div>
             <h1 className="text-center text-[#212121] font-bold leading-[35px]">
@@ -82,7 +74,8 @@ const Login = ({setToken}) => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="stephen@gmail.com"
                 className="outline-0 w-full border-0 placeholder:text-[12px]"
-              required/>
+                required
+              />
             </div>
 
             <div className="w-full border border-[#212121] space-y-1 p-2">
@@ -93,7 +86,8 @@ const Login = ({setToken}) => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="*******"
                 className="outline-0 w-full border-0 placeholder:text-[12px]"
-              required/>
+                required
+              />
             </div>
 
             {/* <div className="flex justify-between">
