@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { MdKeyboardArrowRight } from "react-icons/md";
+
 
 const ServiceBanner = () => {
   return (
@@ -14,13 +16,20 @@ const ServiceBanner = () => {
           diabetes risks early  and make informed health decisions.
         </p>
 
-        <div className="flex items-center justify-center gap-2">
+        <div className="flex items-center justify-center gap-1">
           <NavLink
             className={"text-[#879AAC] text-[17px] lg:text-[20px]"}
             to={"/"}
           >
             Home
           </NavLink>
+
+           <div>
+                 <MdKeyboardArrowRight className="text-[21px]"/>
+          
+             </div>
+          
+
           <NavLink
             className={"text-[#102D47] text-[17px]  lg:text-[20px]"}
             to={"/services"}

@@ -3,7 +3,7 @@ import QuickDiagnosis from '../components/QuickDiagnosis'
 
 const Diagnosis = () => {
   return (
-    <div>
+    <div className='h-full w-full'>
       <QuickDiagnosis />
     </div>
   )
