@@ -183,3 +183,6 @@ cat("✅ Model saved to rscripts/model.rds\n")
 
 # saveRDS(log_model, file = "rscripts/model_logistic.rds")
 # cat("✅ Logistic Regression model saved to rscripts/model_logistic.rds\n")
+
+# saveRDS(svm_model, file='rscripts/model_svm.rds')
+# cat("✅ Support Vector Machine model saved to rscripts/model_svm.rds\n")

@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Admincontext } from '../context/Admincontext'
 import { toast } from 'react-toastify'
 
-const Allusers = () => {
+const Allusers = ({token}) => {
   const {backendUrl} = useContext(Admincontext)
   const [users, setUsers] = useState([])
 
@@ -12,7 +12,7 @@ const Allusers = () => {
   const getAllUsers = async () => {
 
     try {
-      const {data} = await axios.get(backendUrl + "/api/user/allusers", {})
+      const {data} = await axios.post(backendUrl + "/api/user/allusers", {}, {headers:{token}})
       if(data.success){
         setUsers(data.users)
         toast.success("fetched all users", {
@@ -35,7 +35,7 @@ const Allusers = () => {
 
   const removeUser = async (id) => {
    try {
-    const {data} = await axios.post(backendUrl + "/api/user/removeuser", {id})
+    const {data} = await axios.post(backendUrl + "/api/user/removeuser", {id}, {headers : {token}})
     if(data.success){
       getAllUsers()
       toast.success(data.message, {

@@ -11,8 +11,8 @@ import blog8 from "../assets/blog8.png";
 import blog9 from "../assets/blog9.png";
 import blogs1 from "../assets/blogs1.png";
 import author from "../assets/author.png";
-import axios from  'axios'
-import {toast} from 'react-toastify'
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export const diaContext = createContext();
 
@@ -20,11 +20,12 @@ const DiaContextProvider = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [token, setToken] = useState("")
-   const backendUrl = 'http://localhost:8000'
-   const [allBlogs, setAllBlogs] = useState([])
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [token, setToken] = useState("");
+  const backendUrl = "http://localhost:8000";
+  const [allBlogs, setAllBlogs] = useState([]);
+  const [allTips, setAllTips] = useState([]);
+  const [tipsModal, setTipsModal] = useState(false);
 
   const allBlog = [
     {
@@ -96,30 +97,51 @@ const DiaContextProvider = ({ children }) => {
   ];
 
   const getBlogs = async () => {
-
-   try {
-      const {data} = await axios.get(backendUrl + "/api/blog/getblogs", {})
-      if(data.success){
-        setAllBlogs(data.data)
-      }else{
-        toast.error(data.message)
+    try {
+      const { data } = await axios.get(backendUrl + "/api/blog/getblogs", {});
+      if (data.success) {
+        setAllBlogs(data.data);
+      } else {
+        toast.error(data.message);
       }
-   } catch (error) {
-       console.log(error.message);
-       toast.error(error.message)
-       
-   }
-  }
+    } catch (error) {
+      console.log(error.message);
+      toast.error(error.message);
+    }
+  };
+
+  const getAllTips = async () => {
+    if (!token) return null;
+
+    if (location.pathname === "/healthtips") {
+      try {
+        const { data } = await axios.post(backendUrl + "/api/tips/get", {});
+        if (data.success) {
+          setAllTips(data.data);
+          toast.success(data.message, { toastId: "success" });
+        } else {
+          toast.error(data.message, { toastId: "error" });
+        }
+      } catch (error) {
+        console.log(error.message);
+        toast.error(error.message, { toastId: "error" });
+      }
+    }
+  };
 
   useEffect(() => {
-    getBlogs()
-  }, [])
+    getAllTips();
+  }, [token]);
 
   useEffect(() => {
-     if(!token && localStorage.getItem("token")){
-      setToken(localStorage.getItem("token"))
-     }
-  }, [token])
+    getBlogs();
+  }, []);
+
+  useEffect(() => {
+    if (!token && localStorage.getItem("token")) {
+      setToken(localStorage.getItem("token"));
+    }
+  }, [token]);
 
   const value = {
     navigate,
@@ -128,9 +150,14 @@ const DiaContextProvider = ({ children }) => {
     setIsMenuOpen,
     allBlogs,
     setIsModalOpen,
-    isModalOpen, 
+    isModalOpen,
     backendUrl,
-    token, setToken
+    token,
+    setToken,
+    allTips,
+    getAllTips,
+    tipsModal,
+    setTipsModal,
   };
 
   return <diaContext.Provider value={value}>{children}</diaContext.Provider>;

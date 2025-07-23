@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const UpdateBlog = () => {
+const UpdateBlog = ({token}) => {
 
  
   const [title, setTitle] = useState("")
@@ -59,13 +59,12 @@ const UpdateBlog = () => {
     //   formData.append("published", published)
     //   formData.append("author", author)
       
-      const {data} = await axios.put(backendUrl + "/api/blog/updateblog", {id, title, content, category, summary, published, author})
+      const {data} = await axios.put(backendUrl + "/api/blog/updateblog", {id, title, content, category, summary, published, author}, {headers : {token}})
        if(data.success){
         toast.success(data.message)
        }else{
         toast.error(data.message)
        }
-
 
        setTitle("")
        setAuthor("")

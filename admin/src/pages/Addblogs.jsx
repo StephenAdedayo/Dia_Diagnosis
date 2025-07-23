@@ -4,7 +4,7 @@ import { Admincontext } from '../context/Admincontext'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 
-const Addblogs = () => {
+const Addblogs = ({token}) => {
 
   const [image1, setImage1] = useState(false)
   const [image2, setImage2] = useState(false)
@@ -40,7 +40,7 @@ const Addblogs = () => {
       formData.append("published", published)
       formData.append("author", author)
       
-      const {data} = await axios.post(backendUrl + "/api/blog/add", formData)
+      const {data} = await axios.post(backendUrl + "/api/blog/add", formData, {headers: {token}})
        if(data.success){
         toast.success(data.message)
        }

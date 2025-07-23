@@ -10,6 +10,8 @@ import Navbar from "./components/Navbar";
 import { ToastContainer, toast } from "react-toastify";
 import UpdateBlog from "./pages/UpdateBlog";
 import Login from "./components/Login";
+import Tips from "./pages/Tips";
+import AddTips from "./pages/AddTips";
 
 const App = () => {
   const { isSideBarOpen, setIsSideBarOpen } = useContext(Admincontext);
@@ -43,10 +45,12 @@ const App = () => {
              
               <Routes>
                 <Route path="/" index={true} element={<Dashboard />} />
-                <Route path="/allblogs" element={<Allblogs />} />
-                <Route path="/allusers" element={<Allusers />} />
-                <Route path="/addblogs" element={<Addblogs />} />
-                <Route path="/update/:id" element={<UpdateBlog />} />
+                <Route path="/allblogs" element={<Allblogs token={token}/>} />
+                <Route path="/allusers" element={<Allusers token={token} />} />
+                <Route path="/addblogs" element={<Addblogs token={token}/>} />
+                <Route path="/update/:id" element={<UpdateBlog token={token}/>} />
+                <Route path="/tips" element={<Tips token={token}/>} />
+                <Route path="/add" element={<AddTips token={token}/>} />
               </Routes>
             </div>
             {/* </div> */}

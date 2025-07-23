@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
 
-const Allblogs = () => {
+const Allblogs = ({token}) => {
 
 
   const [blogs, setBlogs] = useState([])
@@ -40,7 +40,7 @@ const Allblogs = () => {
   const deleteBlog = async (id) => {
 
     try {
-      const {data} = await axios.post(backendUrl + "/api/blog/removeblog", {id})
+      const {data} = await axios.post(backendUrl + "/api/blog/removeblog", {id}, {headers : {token}})
       if(data.success){
         fetchBlogs()
         toast.success(data.message, {

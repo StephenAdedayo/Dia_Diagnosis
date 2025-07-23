@@ -9,9 +9,11 @@ const Sidebar = ({ token, setToken }) => {
 
   const links = [
     { tag: "Overview", href: "/", img: assets.vector1 },
-    { tag: "Add Blog", href: "/addblogs", img: assets.Notebook },
-    { tag: "Blogs", href: "allblogs", img: assets.Notebook },
-    { tag: "Users", href: "allusers", img: assets.vector2 },
+    { tag: "Add Blog", href: "/addblogs", img: assets.add },
+    { tag: "Blogs", href: "/allblogs", img: assets.Notebook },
+    { tag: "Users", href: "/allusers", img: assets.vector2 },
+    { tag: "Add Tips", href: "/add", img: assets.add },
+    { tag: "Tips", href: "/tips", img: assets.bulb }
   ];
 
   const logout = () => {

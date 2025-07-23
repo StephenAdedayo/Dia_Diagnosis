@@ -131,16 +131,6 @@ const updateBlog = async (req, res) => {
   }
 };
 
-const getBlogData = async (req, res) => {
 
-  try {
-    const {id} = req.body
-    
-  
-  } catch (error) {
-    
-  }
-
-}
 
 export { addBlog, getAllBlogs, getSingleBlog, removeBlog, updateBlog };
