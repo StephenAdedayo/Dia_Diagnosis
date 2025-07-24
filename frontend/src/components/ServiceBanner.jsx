@@ -7,7 +7,7 @@ const ServiceBanner = () => {
   return (
     <div className="px-5 lg:px-40 bg-[#EFFBFF] min-h-[50vh] flex items-center justify-center text-center">
       <div className="flex flex-col gap-5">
-        <p className="font-bold text-[#102D47] lg:text-[40px] text-[35px]">
+        <p className="font-bold text-[#102D47] lg:text-[40px] md:text-[35px] text-[28px]">
           Our Smart Health Services
         </p>
 

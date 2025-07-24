@@ -81,7 +81,7 @@ const QuickDiagnosis = () => {
         </p>
       </div>
 
-      <div className="p-5  min-h-screen bg-[#65c3f3] flex-[50%] ">
+      <div className="sm:p-5 p-3 sm:rounded-[0px] rounded-md min-h-screen bg-[#65c3f3] flex-[50%] ">
         <p className="text-center text-white xl:hidden max-md:mb-10 block md:text-[35px] text-[25px]">
           Get Quick Free Diagnosis
         </p>
@@ -89,7 +89,7 @@ const QuickDiagnosis = () => {
         <div className=" min-h-screen flex items-center justify-center ">
           <form
             onSubmit={predictDiabetes}
-            className="bg-white  md:p-10 p-5 w-full min-h-screen  space-y-3"
+            className="bg-white  md:p-10 p-5 w-full min-h-screen sm:rounded-[0px] rounded-md  space-y-3"
           >
             <div className="flex flex-row w-full gap-5">
               <div htmlFor="" className="flex flex-col gap-3 w-full">
