@@ -100,202 +100,242 @@ const QuickDiagnosis = () => {
                   type="text"
                   placeholder="Age"
                   className="outline-none  border w-full border-[#547593] px-2 py-3"
-                  required
-                />
+                required/>
               </div>
 
               <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Gender</p>
-                <input
+                <select
                   value={Gender}
                   onChange={(e) => setGender(e.target.value)}
-                  type="text"
-                  placeholder="Gender"
                   className="outline-none w-full  border border-[#547593] px-2 py-3"
-                  required
-                />
+                  > 
+                  <option value="" disabled>Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                  </select>
               </label>
             </div>
 
             <div className="flex flex-col md:flex-row gap-5">
               <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Polyuria</p>
-                <input
+                <select
                   value={Polyuria}
                   onChange={(e) => setPolyuria(e.target.value)}
-                  type="text"
-                  placeholder="Polyuria"
-                  className="outline-none border w-full border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  >
+                <option value="" disabled>Polyuria</option>
+ 
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
 
-              <label htmlFor="" className="flex w-full flex-col gap-3">
+               <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Polydipsia</p>
-                <input
+                <select
                   value={Polydipsia}
                   onChange={(e) => setPolydipsia(e.target.value)}
-                  type="text"
-                  placeholder="Polydipsia"
-                  className="outline-none border w-full border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  > 
+                 <option value="" disabled>Polydipsia</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
             </div>
 
             <div className="flex flex-col md:flex-row gap-5">
-              <label htmlFor="" className="flex flex-col gap-3 w-full">
+             <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>SuddenWeightLoss</p>
-                <input
+                <select
                   value={SuddenWeightLoss}
                   onChange={(e) => setSuddenWeightLoss(e.target.value)}
-                  type="text"
-                  placeholder="Suddenweightloss"
-                  className="w-full outline-none border border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  > 
+                <option value="" disabled>SuddenWeightLoss</option> 
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
 
               <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Weakness</p>
-                <input
+                <select
                   value={weakness}
                   onChange={(e) => setWeakness(e.target.value)}
-                  type="text"
-                  placeholder="Weakness"
-                  className="w-full outline-none border border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  >                                
+                  <option value="" disabled>Weakness</option>
+ 
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
             </div>
 
             <div className="flex flex-col md:flex-row gap-5">
-              <label htmlFor="" className="flex flex-col gap-3 w-full">
+             <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Polyphagia</p>
-                <input
+                <select
                   value={Polyphagia}
                   onChange={(e) => setPolyphagia(e.target.value)}
-                  type="text"
-                  placeholder="Polyphagia"
-                  className="w-full outline-none border border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  > 
+                                    <option value="" disabled>Polyphagia</option>
+
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
 
               <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Genital Thrush</p>
-                <input
+                <select
                   value={GenitalThrush}
                   onChange={(e) => setGenitalThrush(e.target.value)}
-                  type="text"
-                  placeholder="Genital Thrush"
-                  className="w-full outline-none border border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  > 
+                                    <option value="" disabled>Genital Thrush</option>
+
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
             </div>
 
             <div className="flex flex-col md:flex-row gap-5">
-              <label htmlFor="" className="flex flex-col gap-3 w-full">
+             <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Visual Blurring</p>
-                <input
+                <select
                   value={VisualBlurring}
                   onChange={(e) => setVisualBlurring(e.target.value)}
-                  type="text"
-                  placeholder="Visual Blurring"
-                  className="w-full outline-none border border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  > 
+                                    <option value="" disabled>Visual Blurring</option>
+
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
 
               <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Itching</p>
-                <input
+                <select
                   value={Itching}
                   onChange={(e) => setItching(e.target.value)}
-                  type="text"
-                  placeholder="itching"
-                  className="w-full outline-none border border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  > 
+                                    <option value="" disabled>Itching</option>
+
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
             </div>
 
             <div className="flex flex-col md:flex-row gap-5">
-              <label htmlFor="" className="flex flex-col gap-3 w-full">
+              <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Irritability</p>
-                <input
+                <select
                   value={Irritability}
                   onChange={(e) => setIrritability(e.target.value)}
-                  type="text"
-                  placeholder="irritablity"
-                  className="w-full outline-none border border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  > 
+                                    <option value="" disabled>Irritability</option>
+
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
 
-              <label htmlFor="" className="flex w-full flex-col gap-3">
+           <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Delayed Healing</p>
-                <input
+                <select
                   value={DelayedHealing}
                   onChange={(e) => setDelayedHealing(e.target.value)}
-                  type="text"
-                  placeholder="delayed healing"
-                  className="w-full outline-none border border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  > 
+                                    <option value="" disabled>Delayed Healing</option>
+
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
             </div>
 
             <div className="flex flex-col md:flex-row gap-5">
-              <label htmlFor="" className="flex flex-col gap-3 w-full">
+             <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Partial Paresis</p>
-                <input
+                <select
                   value={PartialParesis}
                   onChange={(e) => setPartialParesis(e.target.value)}
-                  type="text"
-                  placeholder="Partial Paresis"
-                  className="w-full outline-none border border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  > 
+                                    <option value="" disabled>Partial Paresis</option>
+
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
 
               <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Muscle Stiffness</p>
-                <input
+                <select
                   value={MuscleStiffness}
                   onChange={(e) => setMuscleStiffness(e.target.value)}
-                  type="text"
-                  placeholder="muscle stiffness"
-                  className="w-full outline-none border border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  > 
+                                    <option value="" disabled>Muscle Stiffness</option>
+
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
             </div>
 
             <div className="flex flex-col md:flex-row gap-5">
-              <label htmlFor="" className="flex flex-col gap-3 w-full">
+             <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Alopecia</p>
-                <input
+                <select
                   value={Alopecia}
                   onChange={(e) => setAlopecia(e.target.value)}
-                  type="text"
-                  placeholder="alopecia"
-                  className="w-full outline-none border border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  > 
+                                    <option value="" disabled>Alopecia</option>
+
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
 
-              <label htmlFor="" className="flex w-full flex-col gap-3">
+          <label htmlFor="" className="flex w-full flex-col gap-3">
                 <p>Obesity</p>
-                <input
+                <select
                   value={Obesity}
                   onChange={(e) => setObesity(e.target.value)}
-                  type="text"
-                  placeholder="Obesity"
-                  className="w-full outline-none border border-[#547593] px-2 py-3"
-                  required
-                />
+                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  > 
+                                    <option value="" disabled>Obesity</option>
+
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+                  </select>
               </label>
             </div>
 

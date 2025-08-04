@@ -9,6 +9,7 @@ const AdmincontextProvider = ({ children }) => {
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const backendUrl = "http://localhost:8000";
+  const backendUrlt = "http://localhost:5000";
   const navigate = useNavigate();
 
  
@@ -19,7 +20,8 @@ const AdmincontextProvider = ({ children }) => {
     isMenuOpen,
     setIsMenuOpen,
     backendUrl,
-    navigate
+    navigate,
+    backendUrlt
 
   };
 

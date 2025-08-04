@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { assets } from "../assets/assets";
 import axios from "axios";
 import { Admincontext } from "../context/Admincontext";
@@ -12,7 +12,8 @@ const AddTips = ({token}) => {
   const [authorImage, setAuthorImage] = useState(false);
   const [specialization, setSpecialization] = useState("");
 
-  const { backendUrl } = useContext(Admincontext);
+  const { backendUrlt } = useContext(Admincontext);
+  const fileInputRef = useRef()
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ const AddTips = ({token}) => {
       formData.append("specialization", specialization);
       authorImage && formData.append("authorImage", authorImage);
 
-      const { data } = await axios.post(backendUrl + "/api/tips/add", formData, {headers : {token}});
+      const { data } = await axios.post(backendUrlt + "/api/tips/add", formData, {headers : {token}});
       if (data.success) {
         toast.success(data.message, {toastId : "success"});
       } else {
@@ -39,6 +40,7 @@ const AddTips = ({token}) => {
       setCategory("");
       setSpecialization("");
       setAuthorImage(false);
+      fileInputRef.current.value = null;
     } catch (error) {
       console.log(error.message);
       toast.error(error.message, {toastId : "error"});
@@ -58,9 +60,9 @@ const AddTips = ({token}) => {
               <img
                 className="w-30"
                 src={
-                  !authorImage
-                    ? assets.upload_area
-                    : URL.createObjectURL(authorImage)
+                  authorImage ? URL.createObjectURL(authorImage)
+
+                    : assets.upload_area
                 }
                 alt=""
               />
@@ -68,6 +70,7 @@ const AddTips = ({token}) => {
                 type="file"
                 hidden
                 id="authorImage"
+                ref={fileInputRef}
                 onChange={(e) => setAuthorImage(e.target.files[0])}
               />
               <p className="mt-2 text-[12px] text-gray-500 uppercase">
