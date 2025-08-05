@@ -1,6 +1,6 @@
 import button from './button.png'
 import folderNotch from './FolderNotch.png'
-import logo from './SnowUi Logo.png'
+import logo from './SnowUI Logo.png'
 import icon1 from './Icon (20).png'
 import icon2 from './Icon (21).png'
 import icon3 from './Icon (22).png'
