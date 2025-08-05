@@ -22,7 +22,7 @@ const DiaContextProvider = ({ children }) => {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [token, setToken] = useState("");
-  const backendUrl = "http://localhost:8000";
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   const [allBlogs, setAllBlogs] = useState([]);
   const [allTips, setAllTips] = useState([]);
   const [tipsModal, setTipsModal] = useState(false);

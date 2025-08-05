@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/Layer 1.png";
 import { NavLink } from "react-router-dom";
-import linkedin from "../assets/LinkedIn.png";
+import linkedin from "../assets/linkedIn.png";
 import facebook from "../assets/facebook.png";
 import twitter from "../assets/twitter.png";
 
