@@ -20,7 +20,7 @@ const Start = () => {
 
         <button
           onClick={() => navigate("/diagnosis")}
-          className="bg-[#2F73F2] px-10 py-4 text-white hover:bg-[#0088FF] transition-color duration-500 delay-75 ease "
+          className="bg-[#2F73F2] md:px-10 md:py-4 py-3 px-6 text-white hover:bg-[#0088FF] transition-color duration-500 delay-75 ease "
         >
           Diagnose Yourself
         </button>

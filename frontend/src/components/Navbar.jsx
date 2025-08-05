@@ -79,11 +79,11 @@ const Navbar = () => {
 
 
         <button
-          className="lg:hidden block"
+          className="lg:hidden block "
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {" "}
-          {isMenuOpen ? <FaTimes /> : <BiMenu />}{" "}
+          {isMenuOpen ? <FaTimes className="text-[22px]"/> : <BiMenu  className="text-[22px]"/>}{" "}
         </button>
       </div>
 

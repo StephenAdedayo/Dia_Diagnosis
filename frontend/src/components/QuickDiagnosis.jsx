@@ -2,10 +2,12 @@ import React, { useContext, useState } from "react";
 import { diaContext } from "../context/DiaContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import logo from "../assets/loading.png";
+
 
 const QuickDiagnosis = () => {
   const { backendUrl } = useContext(diaContext);
-  const [prediction, setPrediction] = useState("Prediction:");
+  const [prediction, setPrediction] = useState("");
   const [Age, setAge] = useState("");
   const [Gender, setGender] = useState("");
   const [Polyuria, setPolyuria] = useState("");
@@ -22,12 +24,13 @@ const QuickDiagnosis = () => {
   const [MuscleStiffness, setMuscleStiffness] = useState("");
   const [Alopecia, setAlopecia] = useState("");
   const [Obesity, setObesity] = useState("");
+  const [loading, setLoading] = useState(false)
 
   const predictDiabetes = async (e) => {
     e.preventDefault();
     try {
       // const formData = new FormData()
-
+         setLoading(true)
       const { data } = await axios.post(backendUrl + "/api/model/predict", {
         Age,
         Gender,
@@ -47,7 +50,8 @@ const QuickDiagnosis = () => {
         Obesity,
       });
       if (data.success) {
-        setPrediction(`Prediction: ${data.prediction}`);
+        setLoading(false)
+        setPrediction(`${data.prediction}`)
         toast.success(`You test ${data.prediction} for diabetes`)
       } else {
         setPrediction("Prediction failed.");
@@ -73,8 +77,23 @@ const QuickDiagnosis = () => {
     }
   };
 
+   if (loading) {
   return (
-    <div className="w-full overflow-hidd min-h-screen sm:px-5 lg:px-40 mt-20 flex flex-col  lg:flex-row">
+    <div className="fixed top-0 left-0 w-full h-full z-50 grid place-items-center bg-[#EFFBFF]/70 backdrop-blur-md">
+      <div className="flex flex-col items-center gap-4">
+        <img
+          src={logo} // make sure to replace with your actual image path
+          alt="Loading..."
+          className="w-20 h-20 animate-spin"
+        />
+      </div>
+    </div>
+  );
+}
+
+
+  return (
+    <div className="w-full overflow-hidd min-h-screen sm:px-5 lg:px-40  flex flex-col  lg:flex-row">
       <div className="bg-[#2F73F2] hidden flex-[50%] text-center xl:flex justify-center items-center lg:min-h-screen min-h-[50vh] text-[40px] text-white w-full ">
         <p>
           Get Quick Free <br /> Diagnosis
@@ -91,7 +110,7 @@ const QuickDiagnosis = () => {
             onSubmit={predictDiabetes}
             className="bg-white  md:p-10 p-5 w-full min-h-screen sm:rounded-[0px] rounded-md  space-y-3"
           >
-            <div className="flex flex-row w-full gap-5">
+            <div className="flex flex-col md:flex-row w-full gap-5">
               <div htmlFor="" className="flex flex-col gap-3 w-full">
                 <p>Age</p>
                 <input
@@ -108,7 +127,7 @@ const QuickDiagnosis = () => {
                 <select
                   value={Gender}
                   onChange={(e) => setGender(e.target.value)}
-                  className="outline-none w-full  border border-[#547593] px-2 py-3"
+                  className="outline-none w-full border border-[#547593] px-2 py-3"
                   > 
                   <option value="" disabled>Gender</option>
                 <option value="Male">Male</option>
@@ -343,10 +362,10 @@ const QuickDiagnosis = () => {
               type="submit"
               className="px-6 py-3 border text-[#2F73F2] border-[#2F73F2]"
             >
-              Submit
+              Submit 
             </button>
 
-            <div className="">{prediction}</div>
+            <div className="">Prediction: <span className="text-[#2F73F2] font-bold uppercase">{prediction}</span></div>
           </form>
         </div>
       </div>

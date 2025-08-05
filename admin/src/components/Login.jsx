@@ -45,7 +45,7 @@ const Login = ({ setToken }) => {
       <div className="w-full grid place-items-center bg-gray-100">
         <form
           onSubmit={onSubmitHandler}
-          className="bg-white shadow p-10  w-full max-w-[500px]"
+          className="bg-white shadow px-4 py-10  w-full max-w-[500px]"
         >
           <div>
             <h1 className="text-center text-[#212121] font-bold leading-[35px]">

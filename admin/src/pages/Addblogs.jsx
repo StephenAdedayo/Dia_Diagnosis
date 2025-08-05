@@ -73,28 +73,28 @@ const Addblogs = ({token}) => {
         <div>
           <p className='mb-5 uppercase text-sm text-gray-500 font-medium'>Upload Image</p>
 
-          <div className='flex gap-5'>
+          <div className='grid grid-cols-2 sm:grid-cols-4 flex-wrap md:w-[600px] w-full gap-5'>
             <label className='' htmlFor="image1">
-              <img className='w-30' src={!image1 ? assets.upload_area : URL.createObjectURL(image1) } alt="" />
+              <img className='sm:w-30 w-full' src={!image1 ? assets.upload_area : URL.createObjectURL(image1) } alt="" />
               <input type="file" hidden id='image1' onChange={(e) => setImage1(e.target.files[0])} />
               <p className='mt-2 text-[12px] text-gray-500 uppercase'>Blog image 1</p>
             </label>
 
               <label className='' htmlFor="image2">
-              <img className='w-30' src={!image2 ? assets.upload_area : URL.createObjectURL(image2) } alt="" />
+              <img className='sm:w-30 w-full' src={!image2 ? assets.upload_area : URL.createObjectURL(image2) } alt="" />
               <input type="file" hidden id='image2' onChange={(e) => setImage2(e.target.files[0])} />
               <p className='mt-2 text-[12px] text-gray-500 uppercase'>Blog image 2</p>
             </label>
 
 
               <label className='' htmlFor="image3">
-              <img className='w-30' src={!image3 ? assets.upload_area : URL.createObjectURL(image3) } alt="" />
+              <img className='sm:w-30 w-full' src={!image3 ? assets.upload_area : URL.createObjectURL(image3) } alt="" />
               <input type="file" hidden id='image3' onChange={(e) => setImage3(e.target.files[0])} />
               <p className='mt-2 text-[12px] text-gray-500 uppercase'>Author Image 1</p>
             </label>
 
               <label className='' htmlFor="image4">
-              <img className='w-30' src={!image4 ? assets.upload_area : URL.createObjectURL(image4) } alt="" />
+              <img className='sm:w-30 w-full' src={!image4 ? assets.upload_area : URL.createObjectURL(image4) } alt="" />
               <input type="file" hidden id='image4' onChange={(e) => setImage4(e.target.files[0])} />
               <p className='mt-2 text-[12px] text-gray-500 uppercase'>Author Image 2</p>
             </label>
