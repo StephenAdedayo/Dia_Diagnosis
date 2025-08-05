@@ -105,9 +105,9 @@ const getAllUsers = async (req, res) => {
         const users = await userModel.find({})
 
 
-        if(!users){
-            res.json({success :false, message:error.message})
-        }
+        if (users.length === 0) {
+       return res.json({ success: false, message: "No users found" });
+       }
 
 
         res.json({success : true, users})

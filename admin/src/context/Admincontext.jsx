@@ -8,7 +8,7 @@ export const Admincontext = createContext();
 const AdmincontextProvider = ({ children }) => {
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const backendUrl = "http://localhost:8000";
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const backendUrlt = "http://localhost:5000";
   const navigate = useNavigate();
 

@@ -10,7 +10,10 @@ const Allusers = ({token}) => {
 
 
   const getAllUsers = async () => {
-
+   
+    if(!token){
+      return null
+    }
     try {
       const {data} = await axios.post(backendUrl + "/api/user/allusers", {}, {headers:{token}})
       if(data.success){
