@@ -1,4 +1,4 @@
-import button from './button.png'
+import button from './Button.png'
 import folderNotch from './FolderNotch.png'
 import logo from './SnowUI Logo.png'
 import icon1 from './Icon (20).png'
