@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/loading.png";
+import { toast } from "react-toastify";
+
 
 const BlogItem = ({ allBlogs }) => {
 
@@ -9,11 +12,27 @@ const BlogItem = ({ allBlogs }) => {
     if(allBlogs.length > 0){
       const allBlog = allBlogs.filter(blog => blog.published)
        setBlogData(allBlog)
+       toast.success("All blogs fetched", {toastId : "blogs"})
     }
   }, [allBlogs])
 
+  if(blogData.length === 0){
+    return (
+          <div className="fixed top-0 left-0 w-full h-full z-50 grid place-items-center bg-[#EFFBFF]/70 backdrop-blur-md">
+            <div className="flex flex-col items-center gap-4">
+              <img
+                src={logo} // make sure to replace with your actual image path
+                alt="Loading..."
+                className="w-20 h-20 animate-spin"
+              />
+            </div>
+          </div>
+    )
+  }
+
   return (
     <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
+      
       {blogData.map((blog, index) => (
         <Link key={index} to={`/singleblog/${blog._id}`}>
           <div className="space-y-5 w-full">

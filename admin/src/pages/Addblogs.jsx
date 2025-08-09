@@ -17,11 +17,13 @@ const Addblogs = ({token}) => {
   const [author, setAuthor] = useState("")
   const [category, setCategory] = useState("")
   const [published, setPublished] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const {backendUrl} = useContext(Admincontext)
 
   const onSubmitHandler = async (e) => {
     
+    setLoading(true)
     e.preventDefault()
 
     
@@ -42,9 +44,10 @@ const Addblogs = ({token}) => {
       
       const {data} = await axios.post(backendUrl + "/api/blog/add", formData, {headers: {token}})
        if(data.success){
+        setLoading(false)
         toast.success(data.message)
        }
-
+       
        setImage1(false)
        setImage2(false)
        setImage3(false)
@@ -63,6 +66,20 @@ const Addblogs = ({token}) => {
 
 
   } 
+
+  if(loading){
+      return (
+            <div className="fixed top-0 left-0 w-full h-full z-50 grid place-items-center bg-[#EFFBFF]/70 backdrop-blur-md">
+              <div className="flex flex-col items-center gap-4">
+                <img
+                  src={assets.loading} // make sure to replace with your actual image path
+                  alt="Loading..."
+                  className="w-20 h-20 animate-spin"
+                />
+              </div>
+            </div>
+      )
+    }
 
   return (
     <>
