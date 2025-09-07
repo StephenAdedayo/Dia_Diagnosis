@@ -72,7 +72,7 @@ const Addblogs = ({token}) => {
             <div className="fixed top-0 left-0 w-full h-full z-50 grid place-items-center bg-[#EFFBFF]/70 backdrop-blur-md">
               <div className="flex flex-col items-center gap-4">
                 <img
-                  src={assets.loading} // make sure to replace with your actual image path
+                  src={assets.loading} 
                   alt="Loading..."
                   className="w-20 h-20 animate-spin"
                 />

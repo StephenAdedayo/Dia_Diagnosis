@@ -15,7 +15,7 @@ const Start = () => {
           Simplifying healthcare access with innovative technology
         </p>
         <p className="text-[#454D5D] xl:text-[20px] sm:text-[14px]">
-          Excepteur sint occaecat cupidatat non proident sunt officia
+  Empowering patients with smarter tools for early diagnosis and better care
         </p>
 
         <button

@@ -12,7 +12,7 @@ const AddTips = ({token}) => {
   const [authorImage, setAuthorImage] = useState(false);
   const [specialization, setSpecialization] = useState("");
 
-  const { backendUrlt } = useContext(Admincontext);
+  const { backendUrlt, backendUrl } = useContext(Admincontext);
   const fileInputRef = useRef()
 
   const onSubmitHandler = async (e) => {

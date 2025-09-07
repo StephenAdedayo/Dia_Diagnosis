@@ -21,10 +21,10 @@ const SignUp = () => {
       const {data} = await axios.post(backendUrl + "/api/user/registerUser", {firstName, lastName, email, password})
       if(data.success){
         // navigate("/login")
-        // setToken(data.token)
-        // localStorage.setItem("token", data.token)
+        setToken(data.token)
+        localStorage.setItem("token", data.token)
         toast.success(data.message)
-        navigate("/login")
+        // navigate("/login")
       }else{
         toast.error(data.message)
       }
@@ -36,13 +36,13 @@ const SignUp = () => {
 
   }
 
-  // useEffect(() => {
-  //      if(token){
-  //       // navigate("/login")
-  //      }
-  // }, [token])
+  useEffect(() => {
+       if(token){
+        navigate("/")
+       }
+  }, [token])
 
-  return (
+  return !token && (
     <>
       <div className="w-full">
         <div className="relative">

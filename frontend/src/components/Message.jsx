@@ -1,7 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import message from "../assets/message.png";
+import emailjs from "emailjs-com";
+import { toast } from "react-toastify";
+
 
 const Message = () => {
+
+
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("")
+  const [messages, setMessages] = useState("")
+
+  const service_id = "service_j26rgoj"
+  const template_id = "template_ww1b01o"
+  const public_key = "oM7jiWVPgcsDKXsB0"
+
+  const templateParams = {
+    firstname: firstName,   // 👈 must match your EmailJS template variable
+    lastname: lastName,
+    email: email,
+    message: messages,
+  };
+
+   const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        service_id,   // 👈 Replace with your Service ID
+        template_id,  // 👈 Replace with your Template ID
+        templateParams,         // 👈 Sends the values
+        public_key    // 👈 Replace with your Public Key
+      )
+      .then(
+        () => {
+          toast.success("Message Sent Successfully!");
+          setEmail("")
+          setFirstName("")
+          setLastName("")
+          setMessages("")
+        },
+        (error) => {
+          console.error(error.text);
+          toast.error("Something went wrong. Please try again.");
+        }
+      );
+  };
+
   return (
     <div className="w-full px-5 lg:px-40 my-20 flex flex-col-reverse md:flex-row lg:gap-24 gap-16 items-center">
       <div>
@@ -9,7 +55,7 @@ const Message = () => {
           Send Us A message
         </h1>
 
-        <form className="space-y-5 flex-[50%]">
+        <form onSubmit={sendEmail} className="space-y-5 flex-[50%]">
           <div className="flex justify-between items-center gap-10">
             <div className="w-full">
               <label className="text-[#102D47] text-[17px]" htmlFor="">
@@ -18,8 +64,10 @@ const Message = () => {
               <br />
               <input
                 type="text"
-                name=""
+                name="firstName"
                 id=""
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 placeholder=""
                 className="outline-0 border px-2 py-3 w-full border-[#C0D5FB] rounded-md"
               />
@@ -32,8 +80,10 @@ const Message = () => {
               <br />
               <input
                 type="text"
-                name=""
+                name="lastName"
                 id=""
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 placeholder=""
                 className="outline-0 border px-2 py-3 w-full border-[#C0D5FB] rounded-md"
               />
@@ -48,14 +98,16 @@ const Message = () => {
               <br />
               <input
                 type="email"
-                name=""
+                name="email"
                 id=""
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                 placeholder=""
                 className="outline-0 border px-2 py-3 w-full border-[#C0D5FB] rounded-md"
               />
             </div>
 
-            <div className="w-full">
+            {/* <div className="w-full">
               <label className="text-[#102D47] text-[17px]" htmlFor="">
                 First name*
               </label>{" "}
@@ -67,14 +119,16 @@ const Message = () => {
                 placeholder=""
                 className="outline-0 border px-2 py-3 w-full border-[#C0D5FB] rounded-md"
               />
-            </div>
+            </div> */}
           </div>
 
           <textarea
-            name=""
+            name="messages"
             id=""
             className="w-full outline-0 border px-2 py-3  border-[#C0D5FB] rounded-md "
             rows={5}
+            value={messages}
+            onChange={(e) => setMessages(e.target.value)}
             placeholder="Message"
           ></textarea>
 
