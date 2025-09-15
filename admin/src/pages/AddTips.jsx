@@ -151,7 +151,7 @@ const AddTips = ({token}) => {
           type="submit"
           className="uppercase text-sm bg-gray-500  text-white mt-5 px-6 py-3"
         >
-          Add blog
+          Add Tip
         </button>
       </form>
     </div>

@@ -9,7 +9,7 @@ const AdmincontextProvider = ({ children }) => {
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const backendUrlt = "http://localhost:5000";
+  const backendUrlt = "http://localhost:5050";
   const navigate = useNavigate();
 
  
@@ -22,7 +22,6 @@ const AdmincontextProvider = ({ children }) => {
     backendUrl,
     navigate,
     backendUrlt
-
   };
 
   return (

@@ -6,3 +6,4 @@ const predictRouter = express.Router()
 predictRouter.post("/predict", predictDiabetes)
 
 export default predictRouter
+

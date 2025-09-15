@@ -54,3 +54,5 @@ const predictDiabetes = (req, res) => {
 };
 
 export default predictDiabetes;
+
+

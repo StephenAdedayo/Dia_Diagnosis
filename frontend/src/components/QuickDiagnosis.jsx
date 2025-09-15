@@ -51,8 +51,8 @@ const QuickDiagnosis = () => {
       });
       if (data.success) {
         setLoading(false)
-        setPrediction(`${data.prediction}`)
-        toast.success(`You test ${data.prediction} for diabetes`)
+        setPrediction(`${data.data}`)
+        toast.success(`You test ${data.data} for diabetes`)
       } else {
         setPrediction("Prediction failed.");
       }
